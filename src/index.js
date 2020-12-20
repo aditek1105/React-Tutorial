@@ -44,7 +44,48 @@ const GreetingASec = () => {
  * We need to try to inject this fucntionality into the div of index.html, we do that by react dom and then use that to render it
  */
 // ReactDom.render(<GreetingSec />, document.getElementById("root"));
-ReactDom.render(<GreetingASec />, document.getElementById("root"));
+// ReactDom.render(<GreetingASec />, document.getElementById("root"));
 // ReactDom.render(<Greeting />, document.getElementById("root"));
 // ReactDom.render(<GreetingTemp />, document.getElementById("root"));
 //ReactDom.render(<Greeting></Greeting>, dcocument.getElementById("root")) will also work fine!!
+
+/**
+ * Basic JSX Rules
+ * returns a single element
+ * div/section/article or a Fragment
+ * use the camelCase for a html fragment
+ * className instead of class
+ * close every single element and format the code
+ */
+
+function JSXBasics() {
+  return (
+    <div>
+      <h1> This is for testing purposes!</h1>
+      <ul>
+        <li>This is option 1</li>
+        <li>This is option 2</li>
+      </ul>
+    </div>
+  );
+}
+
+ReactDom.render(<JSXBasics />, document.getElementById("root"));
+
+// Now in the above return statement, we cannot have something like
+/**
+ * function JSXBasics() {
+ * return (<div> ..... </div>
+ * <div> .... </div>);
+ * }
+ * This will throw an error as JSX can only return a single element, if you want to
+ * make your way around it, the best way would be:
+ *
+ * function JSXBasics() {
+ * return (<div> .....
+ * <div> .... </div>
+ * <div> .... </div>
+ *  </div>
+ * );
+ * }
+ */
