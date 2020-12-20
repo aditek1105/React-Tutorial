@@ -70,7 +70,7 @@ function JSXBasics() {
   );
 }
 
-ReactDom.render(<JSXBasics />, document.getElementById("root"));
+// ReactDom.render(<JSXBasics />, document.getElementById("root"));
 
 // Now in the above return statement, we cannot have something like
 /**
@@ -89,3 +89,48 @@ ReactDom.render(<JSXBasics />, document.getElementById("root"));
  * );
  * }
  */
+
+/**
+ * We can use Fragment as well
+ * function JSXBasics() {
+ * return (<React.Fragment> .....
+ * <div> .... </div>
+ * <div> .... </div>
+ *  </React.Fragment>
+ * );
+ * }
+ *
+ * or <React.Fragment> .... </React.Fragment> can also be represented as <>...</>
+ */
+
+/**
+ * Nested Components
+ */
+// this is the main components
+function NestedComp() {
+  return (
+    <div>
+      <Nested />
+      <h1>Hello There!</h1>
+      <Nestedtwo />
+    </div>
+  );
+}
+// these are all the sub-components
+const Nested = () => {
+  return (
+    <div>
+      <h1> This is the nested component! </h1>
+    </div>
+  );
+};
+
+function Nestedtwo() {
+  return (
+    <div>
+      <h2> This is another nested component!! </h2>
+    </div>
+  );
+}
+// the biggest advantage is that we only need to write the render statement once for the main component.
+ReactDom.render(<NestedComp />, document.getElementById("root"));
